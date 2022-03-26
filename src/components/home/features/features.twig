@@ -1,0 +1,31 @@
+
+{% set uniqueId = "id_e6eba33f-52e1-4cb8-8044-1e049d8661ea" %}
+{% set backgroundFixed = general_settings.fixed ? 'fixed' : 'scroll' %}
+{% set backgroundColor = general_settings.background_color_enable ? 'background-color:' ~  general_settings.color ~  ';' : '' %}
+{% set backgroundImage = general_settings.background_image_enable ? 'background-image: url(' ~  general_settings.image ~ 
+');background-attachment:' ~  backgroundFixed ~  ';background-size:' ~  general_settings.size ~  ';' : '' %}
+
+<section data-id="features" class="veda-section" css="{{ backgroundColor }}{{ backgroundImage }}">
+  <div class="core-overlay" css="background-color: {{ general_settings.overlay }}"></div>
+  <div class="container">
+    <h2 css={{ heading.design }}>{{ heading.text }}</h2>
+    <div class="row row-cols-lg-2 row-cols-md-3 row-cols-sm-2 row-cols-1">
+      {% for item in content %}
+        <div>
+          <div class="text-box">
+            <div class="text-box__title">{{ item.title }}</div>
+            <div class="text-box__text">{{ item.text }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div id="countdown">
+      <div class="core-countdown" data-options="{ timestamp: 1658095933744 }">
+        <div class="core-countdown__days"></div>
+        <div class="core-countdown__hours"></div>
+        <div class="core-countdown__minutes"></div>
+        <div class="core-countdown__seconds"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,141 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color-light);
+  color: var(--color-gray7);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+html, body {
+  height: auto !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-gray8);
+  margin: 0;
+  margin-bottom: 5px;
+  line-height: 1.4;
+  font-weight: 500;
+  font-family: var(--font-secondary);
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+img:not([src]) {
+  visibility: hidden;
+}
+
+/* Fixes Firefox anomaly during image load */
+@-moz-document url-prefix() {
+  img:-moz-loading {
+    visibility: hidden;
+  }
+}
+
+.veda-section {
+  position: relative;
+  z-index: 1;
+  padding: 60px 0;
+  background-position: 50% 50%;
+}
+
+.core-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.core-image-cover {
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: calc((1 / (var(--aspect-ratio, 1.33))) * 100%);
+  }
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.core-embed-responsive {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: calc((1 / (var(--aspect-ratio, 1.777))) * 100%);
+  .core-embed-responsive__item,
+  iframe,
+  embed,
+  object {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+.animate__animated-infinite {
+  animation-iteration-count: infinite;
+}
+
+.core-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: 2px solid var(--core-btn-border-color, var(--core-btn-background-color, #111));
+  padding: var(--core-btn-padding, 13px 20px);
+  text-decoration: none;
+  text-align: center;
+  border-radius: var(--core-btn-border-radius, 0px);
+  background-color: var(--core-btn-background-color, #111);
+  background-clip: padding-box;
+  color: var(--core-btn-color, #fff);
+  width: var(--core-btn-width, auto);
+  min-width: var(--core-btn-min-width, auto);
+  max-width: var(--core-btn-max-width, auto);
+  height: var(--core-btn-height, auto);
+  font-weight: var(--core-btn-font-weight, 700);
+  font-size: 15px;
+  transition: all 0.3s;
+  &:hover {
+    opacity: 0.8;
+    color: var(--core-btn-color-hover, #fff);
+  }
+}
+
+.row {
+  --bs-gutter-x: 20px;
+  --bs-gutter-y: 20px;
+}

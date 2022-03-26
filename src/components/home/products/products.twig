@@ -1,0 +1,81 @@
+
+{% set uniqueId = "id_21c57acc-37db-4b68-a161-7b64e2dc5633" %}
+{% set backgroundFixed = general_settings.fixed ? 'fixed' : 'scroll' %}
+{% set backgroundColor = general_settings.background_color_enable ? 'background-color:' ~  general_settings.color ~  ';' : '' %}
+{% set backgroundImage = general_settings.background_image_enable ? 'background-image: url(' ~  general_settings.image ~ 
+');background-attachment:' ~  backgroundFixed ~  ';background-size:' ~  general_settings.size ~  ';' : '' %}
+{% set builderMode = true %}
+
+<section data-id="products" class="veda-section" css="{{ backgroundColor }}{{ backgroundImage }}">
+  <div class="core-overlay" css="background-color: {{ general_settings.overlay }}"></div>
+  <div class="container">
+    <h2 css={{ heading.design }}>{{ heading.text }}</h2>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="pet-banner">
+          <img src="{{ sidebar.banner.img }}" alt="">
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div component="content" class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1">
+          {% set collection = collections[content.collection] %}
+
+          {% for product in collection.products %}
+            <div class="col">
+              <div class="pet-product-card">
+                <div class="pet-product-card__header">
+                  <div class="pet-product-card__image">
+                    <div class="core-image-cover" css="--aspect-ratio: 3/2">
+                      <img src="{{ product.featured_image.src | img_url('400x')}}" alt="{{ product.title }}">
+                    </div>
+                  </div>
+                </div>
+                {% if product.compare_at_price > product.price and content.sale.enable %}
+                  <span class="pet-product-card__sale" css="{{ content.sale.design }}">{{ content.sale.text }}</span>
+                {% endif %}
+                <div class="pet-product-card__body">
+                  <h2 class="pet-product-card__title">
+                    <a href="{{ product.url }}" class="pet-product-card__name">{{ product.title }}</a>
+                  </h2>
+                  {% if content.review_app.enable %}
+                    {% if builderMode %}
+                      <div class="pet-product-card__rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                    {% else %}
+                      
+                        {% if content.review_app.app == 'product_reviews' %}
+                          <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                        {% elseif content.review_app.app == 'rivyo_reviews' %}
+                          <div class="wc_product_review_badge" data-handle="{{ product.handle }}"></div>
+                        {% elseif content.review_app.app == 'loox_reviews' %}
+                          <a href="#looxReviews">
+                            <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
+                          </a>
+                        {% else %}
+                      
+{% endif %}
+
+                    {% endif %}
+                  {% endif %}
+                  <div class="pet-product-card__prices">
+                    <ins class="pet-product-card__saled-price">${{ product.price }}</ins>
+                    {% if product.compare_at_price > product.price %}
+                      <del class="pet-product-card__origin-price">${{ product.compare_at_price }}</del>
+                    {% endif %}
+                  </div>
+                  <a class="core-btn pet-product-card__add-to-cart" href="{{ product.url }}">{{ content.add_to_cart_text }}</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+@import "abstracts/media.scss";
+@import "abstracts/direction.scss";
+@import "abstracts/pfs.scss";
+
+@import "vendors/bootstrap.scss";
+
+@import "base/normalize.scss";
+@import "base/base.scss";
+@import "base/global.scss";
+
+// Components ( không sửa đổi )
+@import "../components/**/*.scss";

@@ -1,0 +1,28 @@
+
+{% set uniqueId = "id_17edeae3-5520-4018-b1ef-41c8967254fc" %}
+{% set backgroundFixed = general_settings.fixed ? 'fixed' : 'scroll' %}
+{% set backgroundColor = general_settings.background_color_enable ? 'background-color:' ~  general_settings.color ~  ';' : '' %}
+{% set backgroundImage = general_settings.background_image_enable ? 'background-image: url(' ~  general_settings.image ~ 
+');background-attachment:' ~  backgroundFixed ~  ';background-size:' ~  general_settings.size ~  ';' : '' %}
+
+<section data-id="hero" class="pet-hero" css="{{ backgroundImage }}">
+  <div class="core-overlay" css="background-color: {{ general_settings.overlay }}"></div>
+  {% if general_settings.background_color_enable %}
+    <svg class="pet-hero__svg" viewBox="0 0 1440 632" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 0H1440V590.802C1163.5 681 1090.5 604.5 726 509C361.5 413.5 338.5 727.669 0 590.802V0Z" fill="{{ general_settings.color }}"/>
+    </svg>
+  {% endif %}
+  <div class="container pet-hero__content">
+    {% if decorate.image_left %}
+      <img class="pet-hero__decorate-1" src="{{ decorate.image_left }}" alt="">
+    {% endif %}
+    {% if decorate.image_right %}
+      <img class="pet-hero__decorate-2" src="{{ decorate.image_right }}" alt="">
+    {% endif %}
+    <div class="pet-hero__content-inner">
+      <h2 class="pet-hero__title" css={{ title.design }}>{{ title.text }}</h2>
+      <div class="pet-hero__description" css="{{ description.design }}">{{ description.text }}</div>
+      <a href="{{ button.url }}" class="pet-hero__btn core-btn">{{ button.text }}</a>
+    </div>
+  </div>
+</section>

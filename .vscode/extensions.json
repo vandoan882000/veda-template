@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "mrmlnc.vscode-scss",
+    "wayou.vscode-todo-highlight",
+    "whatwedo.twig",
+    "mblode.twig-language-2"
+  ]
+}

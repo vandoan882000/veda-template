@@ -1,0 +1,68 @@
+$uniqueId: 'products';
+$container: "[data-id='#{$uniqueId}']";
+
+.pet-product-card {
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid var(--color-gray2);
+  height: 100%;
+}
+
+.pet-product-card__name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-gray9);
+}
+
+.pet-product-card__image {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pet-product-card__rate {
+  font-size: 14px;
+  color: #FEAA01;
+}
+
+.pet-product-card__add-to-cart {
+  --core-btn-background-color: var(--color-primary);
+  --core-btn-border-radius: 20px;
+  --core-btn-height: 40px;
+  --core-btn-min-width: 160px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.pet-product-card__prices {
+  margin-top: 10px;
+}
+
+.pet-product-card__saled-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 2px;
+}
+
+.pet-product-card__origin-price {
+  padding: 2px;
+}
+
+.pet-product-card__sale {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 4px 10px;
+  background-color: #ff5656;
+  color: var(--color-light-freeze);
+  border-radius: 4px;
+}
+
+.pet-banner {
+  border-radius: 10px;
+  overflow: hidden;
+}
+

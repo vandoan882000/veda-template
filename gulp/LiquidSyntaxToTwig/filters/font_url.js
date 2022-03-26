@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.font_url = void 0;
+var translation_1 = require("../../translation");
+var Twig = require("twig");
+Twig.extendFilter("font_url", function () {
+  throw new Error(translation_1.i18n.t("twig_error.filters.font_url"));
+});
+/**
+ * TODO: Chưa làm được cái này
+ * @link https://shopify.dev/api/liquid/filters/font-filters#font_url
+ */
+var font_url = function (liquid) {
+  return liquid;
+};
+exports.font_url = font_url;

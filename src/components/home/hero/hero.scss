@@ -1,0 +1,73 @@
+$uniqueId: 'hero';
+$container: "[data-id='#{$uniqueId}']";
+$height: 70vh;
+
+#{$container} {
+  position: relative;
+  z-index: 9;
+  min-height: calc($height + 10%);
+}
+
+.pet-hero__content {
+  position: relative;
+  height: 100%;
+  min-height: $height;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pet-hero__content-inner {
+  margin-bottom: 15%;
+}
+
+.pet-hero__svg {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  width: 100%;
+  min-width: 1000px;
+  height: 100%;
+}
+
+.pet-hero__title {
+  font-size: pfs(30px, 50px);
+  font-weight: 700;
+  color: var(--color-gray9-freeze);
+}
+
+.pet-hero__description {
+  margin-top: pfs(10px, 27px);
+  font-size: pfs(16px, 20px);
+  color: var(--color-gray9-freeze);
+}
+
+.pet-hero__btn {
+  --core-btn-border-radius: 10px;
+  --core-btn-background-color: var(--color-primary);
+  --core-btn-border-color: var(--color-primary);
+  --core-btn-min-width: 400px;
+  margin-top: pfs(20px, 45px);
+  @include media-max(410) {
+    --core-btn-min-width: auto;
+    --core-btn-width: 100%;
+  }
+}
+
+.pet-hero__decorate-1 {
+  position: absolute;
+  bottom: 14%;
+  left: 15px;
+  max-width: 23%;
+}
+
+.pet-hero__decorate-2 {
+  position: absolute;
+  bottom: -10%;
+  right: 15px;
+  max-width: 21%;
+}
+
